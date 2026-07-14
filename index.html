@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Navagraha — Your Birth Chart & Numerology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Spectral:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<header class="hero">
+  <div class="hero-eyebrow">Vedic astrology &middot; numerology</div>
+  <h1 class="hero-title">Navagraha</h1>
+  <p class="hero-sub">नवग्रह &mdash; the nine planets, read at the moment you began.</p>
+</header>
+
+<main>
+  <section class="panel form-panel" id="formPanel">
+    <h2 class="panel-title">Tell us when your story began</h2>
+    <form id="birthForm">
+      <label>
+        <span>Full name</span>
+        <input type="text" id="name" required placeholder="e.g. Aarav Sharma" />
+      </label>
+
+      <div class="row">
+        <label>
+          <span>Date of birth</span>
+          <input type="date" id="dob" required />
+        </label>
+        <label>
+          <span>Time of birth</span>
+          <input type="time" id="tob" required />
+        </label>
+      </div>
+
+      <label>
+        <span>Place of birth</span>
+        <input type="text" id="place" required placeholder="e.g. Bhubaneswar, Odisha, India" />
+      </label>
+
+      <button type="submit" id="submitBtn">
+        <span class="btn-label">Reveal my chart</span>
+        <span class="btn-glyph">✦</span>
+      </button>
+      <p class="hint">Exact time matters — even a few minutes can shift your ascendant and houses.</p>
+    </form>
+  </section>
+
+  <section class="panel loading-panel hidden" id="loadingPanel">
+    <div class="orbit-loader"><div class="orbit-core"></div></div>
+    <p id="loadingText">Charting the sky…</p>
+  </section>
+
+  <section class="panel error-panel hidden" id="errorPanel">
+    <p id="errorText"></p>
+    <button id="tryAgainBtn">Try again</button>
+  </section>
+
+  <section class="results hidden" id="results">
+
+    <div class="panel wheel-panel">
+      <h2 class="panel-title" id="resultName"></h2>
+      <p class="location-line" id="resultLocation"></p>
+      <div id="wheelContainer"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+
+    <div class="panel numerology-panel">
+      <h2 class="panel-title">Numbers of your life</h2>
+      <div class="num-grid">
+        <div class="num-card">
+          <div class="num-value" id="mulankValue">–</div>
+          <div class="num-label">Mulank <span>Root Number</span></div>
+          <p class="num-trait" id="mulankTrait"></p>
+        </div>
+        <div class="num-card">
+          <div class="num-value" id="bhagyankValue">–</div>
+          <div class="num-label">Bhagyank <span>Destiny Number</span></div>
+          <p class="num-trait" id="bhagyankTrait"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel planets-panel">
+      <h2 class="panel-title">Planets &amp; houses</h2>
+      <table class="planet-table" id="planetTable">
+        <thead>
+          <tr><th>Planet</th><th>Sign</th><th>House</th><th>Degree</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="panel reading-panel">
+      <h2 class="panel-title">Your reading</h2>
+      <div id="readingText" class="reading-text"></div>
+    </div>
+
+    <button id="newChartBtn" class="secondary-btn">Chart someone else</button>
+  </section>
+</main>
+
+<footer>
+  <p>Chart positions are computed astronomically (sidereal zodiac, whole-sign houses). Interpretations are generated for reflection and entertainment — not professional advice.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
