@@ -73,6 +73,6 @@ app.post('/api/chart', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Astrology app running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Astrology app running on http://0.0.0.0:${PORT}`);
 });
